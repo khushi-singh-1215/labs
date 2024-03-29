@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Header styles */
+        header {
+            
+            border: 5px solid #e35c5c;
+            background-color: #5fcceb;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Paragraph styles */
+        .column {
+            float: left;
+            width: 50%; /* Two equal columns */
+            padding: 20px;
+            border: 5px solid #ddd;
+            background-color: #814fdd;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Header</h1>
+    </header>
+    <div class="row">
+        <div class="column">
+            <p>This is the first paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="column">
+            <p>This is the second paragraph. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <style>
+        /* Add some basic styling for the form */
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Registration Form</h1>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" >
+        <br>
+
+        <label for="password">Password (8 characters minimum):</label>
+        <input type="password" id="password" name="password" >
+        <br>
+
+        <label for="userId">User ID (e.g., BTBTI21176):</label>
+        <input type="text" id="userId" name="userId" >
+        <br>
+
+        <label for="mobile">Mobile Number (10 digits):</label>
+        <input type="tel" id="mobile" name="mobile" >
+        <br>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            const firstName = document.getElementById("firstName").value;
+            const password = document.getElementById("password").value;
+            const userId = document.getElementById("userId").value;
+            const mobile = document.getElementById("mobile").value;
+
+            // Validate first name (not empty)
+            if (!firstName) {
+                alert("Please enter your First Name.");
+                return false;
+            }
+
+            // Validate password length
+            if (password.length < 8) {
+                alert("Password must be at least 8 characters long.");
+                return false;
+            }
+
+            // Validate user ID format (5 letters + 5 digits)
+            if (!/^[A-Za-z]{5}[0-9]{5}$/.test(userId)) {
+                alert("User ID should be in the format BTBTI21176.");
+                return false;
+            }
+
+            // Validate mobile number (10 digits)
+            if (!/^[0-9]{10}$/.test(mobile)) {
+                alert("Mobile number should be 10 digits.");
+                return false;
+            }
+
+            // All validations passed
+            alert("Registration successful!");
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>

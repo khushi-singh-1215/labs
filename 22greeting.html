@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Greeting</title>
+    <style>
+        /* Style for the greeting message */
+        #greeting {
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            cursor: pointer; /* Add cursor pointer for click interaction */
+        }
+    </style>
+</head>
+<body>
+    <div id="greeting"></div>
+
+    <script>
+        // Get the user's name (you can prompt for it or get it from other sources)
+        var userName = prompt("Please enter your name:");
+
+        // Function to update the greeting message        
+        function updateGreeting() {
+            
+            var now = new Date();
+            var hour = now.getHours();
+
+            let greetingMessage = "";
+            if (hour < 12) {
+                greetingMessage = `Good morning, ${userName}!`;
+            } else if (hour >= 12 && hour < 17) {
+                greetingMessage = `Good afternoon, ${userName}!`;
+            } else {
+                greetingMessage = `Good evening, ${userName}!`;
+            }
+
+            // Display the greeting
+            var greetingElement = document.getElementById("greeting");
+            greetingElement.textContent = greetingMessage;
+        }
+
+        // Initial call to set the greeting
+        updateGreeting();
+
+        // Hide the greeting when clicked
+        var greetingElement = document.getElementById("greeting");
+        greetingElement.addEventListener("click", function () {
+            greetingElement.style.display = "none";
+        });
+    </script>
+</body>
+</html>

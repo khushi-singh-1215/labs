@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        /* Add any custom styles here */
+    </style>
+</head>
+<body>
+    <p>
+        <label for="inputKelvin">Kelvin</label>
+        <input id="inputKelvin" type="number" placeholder="Kelvin" oninput="convertTemperatures(this.value)">
+    </p>
+    <p>
+        Celsius: <span id="outputCelsius"></span>
+    </p>
+    <p>
+        Fahrenheit: <span id="outputFahrenheit"></span>
+    </p>
+
+    <script>
+        function convertTemperatures(valKelvin) {
+            valKelvin = parseFloat(valKelvin);
+
+            // Convert to Celsius
+            const celsius = valKelvin - 273.15;
+            document.getElementById("outputCelsius").textContent = celsius.toFixed(2) + " °C";
+
+            // Convert to Fahrenheit
+            const fahrenheit = (valKelvin * 9/5) - 459.67;
+            document.getElementById("outputFahrenheit").textContent = fahrenheit.toFixed(2) + " °F";
+        }
+    </script>
+</body>
+</html>
